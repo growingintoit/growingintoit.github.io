@@ -1,11 +1,19 @@
-/* CSS para celulares - Mobile First Approach */
+/* 
+ * CSS para Growing Into It
+ * Enfoque: Mobile First
+ * Compatibilidad: Cross-Browser
+ * Versión: 1.1
+ */
+
+/* ==========================================================================
+   1. RESET Y ESTILOS BASE
+   ========================================================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Asegurar que html y body ocupen toda la altura */
 html,
 body {
   height: 100%;
@@ -18,21 +26,21 @@ body {
   line-height: 1.6;
   color: #333;
   background-color: #f8f9fa;
-
-  /* Usar flexbox para footer al final */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* HEADER - 100% de ancho con contenido horizontal justificado */
+/* ==========================================================================
+   2. ESTILOS MÓVILES (Mobile First)
+   ========================================================================== */
+
+/* HEADER - Para móviles */
 #cabecera {
   min-height: 60px;
   margin-bottom: 20px;
   border-bottom: 1px solid #eaeaea;
   background-color: #ffffff;
-
-  /* Ocupar el 100% del ancho de la página */
   width: 100vw;
   position: relative;
   left: 50%;
@@ -40,51 +48,44 @@ body {
   margin-left: -50vw;
   margin-right: -50vw;
   margin-top: 0;
-
-  /* Flexbox para alinear contenido del header */
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 15px 0;
 }
 
-/* Contenedor interno del header - OCUPA TODO EL ANCHO DISPONIBLE */
 #cabecera > div {
   width: 100%;
   max-width: 1200px;
   padding: 0 15px;
   display: flex;
-  justify-content: space-between; /* Justifica el contenido entre todo */
+  justify-content: space-between;
   align-items: center;
 }
 
-/* Estilo para el título del header */
 #cabecera h1 {
-  font-size: 1.5rem; /* Reducido para móviles */
+  font-size: 1.5rem;
   color: #2c3e50;
   margin: 0;
-  white-space: nowrap; /* Evita que el título se divida en varias líneas */
+  white-space: nowrap;
 }
 
-/* Enlaces del header */
 #cabecera a {
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
-  white-space: nowrap; /* Evita que los enlaces se dividan */
+  white-space: nowrap;
 }
 
-/* Enlace del título */
 #cabecera a[href="/index.html"] {
   color: #2c3e50;
-  font-size: 1.5rem; /* Mismo tamaño que el h1 para consistencia */
+  font-size: 1.5rem;
 }
 
 #cabecera a[href="/index.html"]:hover {
   color: #1a252f;
 }
 
-/* Enlace "About us" */
 #cabecera a[href="/about_us.html"] {
   color: #3498db;
 }
@@ -102,7 +103,7 @@ body {
   width: 100%;
 }
 
-/* Descripción corta - TODOS LOS TEXTOS CENTRADOS */
+/* Descripción corta */
 .descripcion_corta_landing_gpage {
   margin-bottom: 30px;
   padding: 20px 0;
@@ -129,7 +130,7 @@ body {
   text-align: center;
 }
 
-/* Galería de libros - TODOS LOS TEXTOS CENTRADOS */
+/* Galería de libros */
 .galeria {
   display: flex;
   flex-direction: column;
@@ -175,7 +176,7 @@ body {
   text-align: center;
 }
 
-/* Sección About Us - TODOS LOS TEXTOS CENTRADOS */
+/* Sección About Us */
 .about_us {
   margin-top: 40px;
   padding: 30px 20px;
@@ -207,17 +208,17 @@ body {
   text-align: center;
 }
 
-/* FOOTER - 100% de ancho, sin bordes redondeados */
+/* ==========================================================================
+   3. FOOTER - ESPECÍFICO PARA MÓVILES (COLUMNA)
+   ========================================================================== */
+
+/* Contenedor principal del footer */
 #pie {
   min-height: 80px;
   background-color: #2c3e50;
   color: white;
   margin-top: 40px;
-
-  /* Sin bordes redondeados */
   border-radius: 0;
-
-  /* Ocupar el 100% del ancho de la página */
   width: 100vw;
   position: relative;
   left: 50%;
@@ -225,56 +226,72 @@ body {
   margin-left: -50vw;
   margin-right: -50vw;
   margin-bottom: 0;
+  min-height: auto;
 
-  /* Flexbox para alinear contenido del footer */
+  /* Configuración para columna en móviles */
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   padding: 25px 0;
 }
 
-/* Contenedor interno del footer */
+/* Contenedor interno del footer - DISEÑO EN COLUMNA PARA MÓVILES */
 #pie > div {
   width: 100%;
   max-width: 1200px;
   padding: 0 15px;
+
+  /* Diseño en columna para móviles */
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 25px; /* Espacio entre elementos en columna */
 }
 
-/* Enlaces del footer */
-#pie a {
+/* Enlace "About us" en el footer */
+#pie > div > a {
   color: #ffffff;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
-#pie a:hover {
+
+#pie > div > a:hover {
   color: #ecf0f1;
+  text-decoration: none;
 }
 
-/* Contenedor de redes sociales */
+/* Contenedor de redes sociales - EN COLUMNA PARA MÓVILES */
 #pie p {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  flex-direction: column; /* Columna para móviles */
+  gap: 15px; /* Espacio vertical entre enlaces de redes sociales */
   margin: 0;
+  width: 100%;
+  align-items: center;
 }
 
-/* Estilo para cada enlace de red social */
+/* Estilo individual para cada enlace de red social */
 .red_social {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column; /* Coloca icono y texto en columna */
   align-items: center;
   gap: 8px;
-  padding: 8px 15px;
+  padding: 12px 20px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 5px;
   transition: all 0.3s ease;
+  width: 80%;
+  max-width: 200px;
+  text-align: center;
+  text-decoration: none;
+  color: #ecf0f1;
 }
 
 .red_social:hover {
@@ -283,7 +300,56 @@ body {
   transform: translateY(-2px);
 }
 
-/* Responsive adjustments - Tablets pequeñas */
+/* Texto dentro de los enlaces de redes sociales */
+.red_social span {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   4. MEJORAS DE ACCESIBILIDAD Y EXPERIENCIA DE USUARIO
+   ========================================================================== */
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Iconos para redes sociales */
+.red_social img {
+  width: 24px; /* Tamaño ligeramente mayor para móviles */
+  height: 24px;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.red_social:hover img {
+  opacity: 1;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==========================================================================
+   5. MEDIA QUERIES PARA TABLETS
+   ========================================================================== */
 @media (min-width: 481px) and (max-width: 768px) {
   .cuerpo {
     padding: 0 20px;
@@ -313,7 +379,6 @@ body {
     font-size: 1.8rem;
   }
 
-  /* Header y Footer mantienen 100% ancho */
   #cabecera,
   #pie {
     margin-left: -50vw;
@@ -321,7 +386,6 @@ body {
     width: 100vw;
   }
 
-  /* Tamaños de fuente aumentados para tablet */
   #cabecera h1 {
     font-size: 1.8rem;
   }
@@ -333,9 +397,27 @@ body {
   #cabecera a[href="/about_us.html"] {
     font-size: 1.1rem;
   }
+
+  /* FOOTER PARA TABLETS - Mantiene columna pero ajusta detalles */
+  #pie > div {
+    gap: 30px; /* Más espacio entre elementos */
+  }
+
+  .red_social {
+    width: 70%; /* Ancho un poco menor para tablets */
+    flex-direction: row; /* Icono y texto en fila para tablets */
+    justify-content: center;
+    padding: 10px 25px;
+  }
+
+  .red_social span {
+    font-size: 1rem; /* Texto un poco más grande */
+  }
 }
 
-/* Responsive adjustments - Tablets grandes y desktop */
+/* ==========================================================================
+   6. MEDIA QUERIES PARA DESKTOP
+   ========================================================================== */
 @media (min-width: 769px) {
   .cuerpo {
     padding: 0 30px;
@@ -372,7 +454,6 @@ body {
     font-size: 1.4rem;
   }
 
-  /* Header y Footer mantienen 100% ancho */
   #cabecera,
   #pie {
     margin-left: -50vw;
@@ -380,7 +461,6 @@ body {
     width: 100vw;
   }
 
-  /* Tamaños de fuente aumentados para desktop */
   #cabecera h1 {
     font-size: 2rem;
   }
@@ -394,50 +474,71 @@ body {
     padding: 10px 20px;
   }
 
-  /* Footer layout mejorado para desktop */
+  /* FOOTER PARA DESKTOP - Cambia a diseño horizontal */
   #pie > div {
-    flex-direction: row;
+    flex-direction: row; /* Cambia a fila para desktop */
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
+  }
+
+  /* Enlace "About us" en desktop */
+  #pie > div > a {
+    border-bottom: none; /* Elimina la línea divisoria */
+    margin-bottom: 0;
+    width: auto; /* Ancho automático */
+    padding: 0;
+    flex: 0 0 auto; /* No se estira */
+  }
+
+  /* Contenedor de redes sociales en desktop */
+  #pie p {
+    flex-direction: row; /* Cambia a fila para desktop */
+    gap: 20px;
+    width: auto; /* Ancho automático */
+  }
+
+  /* Enlaces de redes sociales en desktop */
+  .red_social {
+    width: auto; /* Ancho automático */
+    flex-direction: row; /* Icono y texto en fila */
+    padding: 8px 15px;
+    min-width: 120px; /* Ancho mínimo para consistencia */
+  }
+
+  .red_social span {
+    font-size: 0.9rem;
   }
 }
 
-/* Mejoras de accesibilidad y experiencia táctil */
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
+/* ==========================================================================
+   7. ESTILOS ESPECÍFICOS PARA DISPOSITIVOS MUY PEQUEÑOS
+   ========================================================================== */
+@media (max-width: 360px) {
+  /* Ajustes para pantallas muy pequeñas */
+  #cabecera h1 {
+    font-size: 1.3rem; /* Título más pequeño */
+  }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
+  #cabecera a[href="/index.html"] {
+    font-size: 1.3rem;
+  }
 
-/* Iconos para redes sociales (placeholder) */
-.red_social img {
-  width: 20px;
-  height: 20px;
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
-}
+  #cabecera a[href="/about_us.html"] {
+    font-size: 0.9rem;
+  }
 
-.red_social:hover img {
-  opacity: 1;
-}
+  .subtitulo {
+    font-size: 1.2rem;
+  }
 
-/* Mejoras de legibilidad */
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-}
+  /* Footer en pantallas muy pequeñas */
+  .red_social {
+    width: 90%; /* Ocupa casi todo el ancho */
+    padding: 10px 15px;
+  }
 
-/* Scroll suave */
-html {
-  scroll-behavior: smooth;
+  .red_social span {
+    font-size: 0.85rem;
+  }
 }
