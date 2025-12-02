@@ -1,171 +1,443 @@
-/* RESET */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+/* CSS para celulares - Mobile First Approach */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-a{
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-}
-
-a:hover{
-    color: rgb(210, 145, 218);
-}
-
-a:active{
-    color: rgb(210, 145, 218);
-}
-
-html {
-  font-size: 16px;
+/* Asegurar que html y body ocupen toda la altura */
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-  background: linear-gradient(160deg, #a18f66, #8cb88b);
-  color: #e5e7eb;
-  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa;
+
+  /* Usar flexbox para footer al final */
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
-/* HEADER / FOOTER */
-header#cabecera,
-footer#pie {
-  padding: 1rem 1.25rem;
-  color: #e5e7eb;
-  background: rgba(15, 23, 42, 0.4);
-  backdrop-filter: blur(10px);
+/* HEADER - 100% de ancho con contenido horizontal justificado */
+#cabecera {
+  min-height: 60px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eaeaea;
+  background-color: #ffffff;
 
+  /* Ocupar el 100% del ancho de la página */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: 0;
+
+  /* Flexbox para alinear contenido del header */
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding: 15px 0;
 }
 
-footer#pie {
-  margin-top: auto;
-  text-align: center;
-  font-size: 0.85rem;
+/* Contenedor interno del header - OCUPA TODO EL ANCHO DISPONIBLE */
+#cabecera > div {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between; /* Justifica el contenido entre todo */
+  align-items: center;
 }
 
-/* HERO */
+/* Estilo para el título del header */
+#cabecera h1 {
+  font-size: 1.5rem; /* Reducido para móviles */
+  color: #2c3e50;
+  margin: 0;
+  white-space: nowrap; /* Evita que el título se divida en varias líneas */
+}
+
+/* Enlaces del header */
+#cabecera a {
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  white-space: nowrap; /* Evita que los enlaces se dividan */
+}
+
+/* Enlace del título */
+#cabecera a[href="/index.html"] {
+  color: #2c3e50;
+  font-size: 1.5rem; /* Mismo tamaño que el h1 para consistencia */
+}
+
+#cabecera a[href="/index.html"]:hover {
+  color: #1a252f;
+}
+
+/* Enlace "About us" */
+#cabecera a[href="/about_us.html"] {
+  color: #3498db;
+}
+
+#cabecera a[href="/about_us.html"]:hover {
+  color: #000000;
+}
+
+/* Contenedor principal */
+.cuerpo {
+  flex: 1;
+  padding: 0 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Descripción corta - TODOS LOS TEXTOS CENTRADOS */
 .descripcion_corta_landing_gpage {
-  padding: 2.5rem 1.5rem 1.5rem;
+  margin-bottom: 30px;
+  padding: 20px 0;
   text-align: center;
 }
 
 .subtitulo {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  margin-bottom: 1rem;
-  letter-spacing: 0.03em;
-  color: #f9fafb;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  line-height: 1.3;
+  text-align: center;
 }
 
 .descripcion_corta {
-  max-width: 32rem;
-  margin: 0 auto;
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
 }
 
 .descripcion_corta p {
-  margin-bottom: 0.75rem;
-  font-size: 0.95rem;
-  color: #cbd5f5;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
-/* GALERÍA – CARRUSEL HORIZONTAL EN MOBILE */
+/* Galería de libros - TODOS LOS TEXTOS CENTRADOS */
 .galeria {
   display: flex;
-  gap: 1rem;
-  padding: 1rem 1.25rem 2.5rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 40px;
 }
 
-.galeria::-webkit-scrollbar {
-  height: 6px;
+.n {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
 }
 
-.galeria::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.7);
+.n:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-.galeria::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.9);
-  border-radius: 999px;
-}
-
-.galeria .n {
-  scroll-snap-align: center;
-  flex: 0 0 85%;
-  background: rgba(15, 23, 42, 0.9);
-  border-radius: 1.25rem;
-  padding: 1.25rem;
-  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(148, 163, 184, 0.4);
-}
-
-/* IMÁGENES */
-.galeria .n img {
+.n img {
   width: 100%;
+  max-width: 250px;
   height: auto;
-  border-radius: 0.9rem;
-  margin-bottom: 1rem;
+  display: block;
+  margin: 0 auto 20px;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* TEXTO TARJETAS */
-.galeria .n h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.75rem;
-  color: #f9fafb;
+.n h3 {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-.galeria .n p {
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-  color: #e5e7eb;
+.n p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 12px;
+  text-align: center;
 }
 
-/* RESPONSIVE TABLET */
-@media (min-width: 640px) {
+/* Sección About Us - TODOS LOS TEXTOS CENTRADOS */
+.about_us {
+  margin-top: 40px;
+  padding: 30px 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.about_us h2 {
+  font-size: 1.6rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.about_us h3 {
+  font-size: 1.2rem;
+  color: #3498db;
+  margin-bottom: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.about_us p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* FOOTER - 100% de ancho, sin bordes redondeados */
+#pie {
+  min-height: 80px;
+  background-color: #2c3e50;
+  color: white;
+  margin-top: 40px;
+
+  /* Sin bordes redondeados */
+  border-radius: 0;
+
+  /* Ocupar el 100% del ancho de la página */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-bottom: 0;
+
+  /* Flexbox para alinear contenido del footer */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 0;
+}
+
+/* Contenedor interno del footer */
+#pie > div {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Enlaces del footer */
+#pie a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+#pie a:hover {
+  color: #ecf0f1;
+}
+
+/* Contenedor de redes sociales */
+#pie p {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 0;
+}
+
+/* Estilo para cada enlace de red social */
+.red_social {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.red_social:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments - Tablets pequeñas */
+@media (min-width: 481px) and (max-width: 768px) {
+  .cuerpo {
+    padding: 0 20px;
+  }
+
+  #cabecera > div,
+  #pie > div {
+    padding: 0 20px;
+  }
+
   .subtitulo {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 
   .galeria {
-    overflow-x: visible;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  .galeria .n {
-    flex: 0 1 44%;
-    max-width: 18rem;
+  .n {
+    flex: 0 1 calc(50% - 20px);
+    min-width: 250px;
+  }
+
+  .about_us h2 {
+    font-size: 1.8rem;
+  }
+
+  /* Header y Footer mantienen 100% ancho */
+  #cabecera,
+  #pie {
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+  }
+
+  /* Tamaños de fuente aumentados para tablet */
+  #cabecera h1 {
+    font-size: 1.8rem;
+  }
+
+  #cabecera a[href="/index.html"] {
+    font-size: 1.8rem;
+  }
+
+  #cabecera a[href="/about_us.html"] {
+    font-size: 1.1rem;
   }
 }
 
-/* RESPONSIVE DESKTOP */
-@media (min-width: 1024px) {
-  .descripcion_corta_landing_gpage {
-    padding-top: 3rem;
+/* Responsive adjustments - Tablets grandes y desktop */
+@media (min-width: 769px) {
+  .cuerpo {
+    padding: 0 30px;
+  }
+
+  #cabecera > div,
+  #pie > div {
+    padding: 0 30px;
+  }
+
+  .subtitulo {
+    font-size: 1.8rem;
   }
 
   .galeria {
-    max-width: 64rem;
-    margin: 0 auto 3rem;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem;
+    flex-direction: row;
+    justify-content: space-around;
   }
 
-  .galeria .n {
-    flex: initial;
-    max-width: 100%;
+  .n {
+    flex: 0 1 45%;
+    max-width: 500px;
   }
+
+  .about_us {
+    padding: 40px;
+  }
+
+  .about_us h2 {
+    font-size: 2rem;
+  }
+
+  .about_us h3 {
+    font-size: 1.4rem;
+  }
+
+  /* Header y Footer mantienen 100% ancho */
+  #cabecera,
+  #pie {
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+  }
+
+  /* Tamaños de fuente aumentados para desktop */
+  #cabecera h1 {
+    font-size: 2rem;
+  }
+
+  #cabecera a[href="/index.html"] {
+    font-size: 2rem;
+  }
+
+  #cabecera a[href="/about_us.html"] {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+  }
+
+  /* Footer layout mejorado para desktop */
+  #pie > div {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* Mejoras de accesibilidad y experiencia táctil */
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Iconos para redes sociales (placeholder) */
+.red_social img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.red_social:hover img {
+  opacity: 1;
+}
+
+/* Mejoras de legibilidad */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
 }
